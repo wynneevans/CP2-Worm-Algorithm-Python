@@ -15,6 +15,8 @@ In no particular order:
 7) Program arguments explained crudely. perhaps have settings/inputs file.
 8) Beta and Nt paramters are not locked according formula, an example of leaving unnecessary room for user error.
 
+## Software Development Improvements in the Python Code
 
+1) Have created Plaquette and Lattice classes that fit more naturally together. This was achieved by defining a lattice as collection of plaquettes, with each plaquette having a reference to its four nearest neighbours. The Lattice is then a data structure analogous to a linked list.
 
    [here]: <https://github.com/wynneevans/CP2-Worm-Algorithm-CPP>
