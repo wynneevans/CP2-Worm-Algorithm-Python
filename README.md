@@ -17,6 +17,9 @@ In no particular order:
 
 ## Software Development Improvements in the Python Code
 
-1) Have created Plaquette and Lattice classes that fit more naturally together. This was achieved by defining a lattice as collection of plaquettes, with each plaquette having a reference to its four nearest neighbours. The Lattice is then a data structure analogous to a linked list.
+1) Separate code into different files in a logical manner.
+2) Use unit testing from the start.
+3) Use Git.
+4) Have created Plaquette and Lattice classes that fit more naturally together. This was achieved by defining a lattice as collection of plaquettes, with each plaquette having a reference to its four nearest neighbours. The Lattice is then a data structure analogous to a linked list.
 
    [here]: <https://github.com/wynneevans/CP2-Worm-Algorithm-CPP>
