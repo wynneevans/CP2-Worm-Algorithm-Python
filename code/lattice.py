@@ -24,7 +24,11 @@ class Lattice:
 
     def __init__(self, Nx, Ny, Nt):
 
+        self.Nx_ = Nx
+        self.Ny_ = Ny
+        self.Nt_ = Nt
         self.plaquettes = []
+
         for i in range(Nx*Ny*Nt/2):
             self.plaquettes.append(Plaquette(i, None))
 
@@ -126,3 +130,46 @@ class Lattice:
                         plaquette.ref1 = neighbour1
                         plaquette.ref2 = neighbour2
                         plaquette.ref3 = neighbour3
+
+    def antiferromagnetic(self):
+        Nx = self.Nx_
+        Ny = self.Ny_
+        Nt = self.Nt_
+
+        for k in range(self.Nt_):
+
+            if k % 4 == 0:
+                for j in range(self.Ny_):
+                    for i in range(self.Nx_/2):
+                        plaquette_pos = i + j*Nx/2 + k*Nx*Ny/2
+                        if j%2 == 0:
+                            self.plaquettes[plaquette_pos].value = 13
+                        else:
+                            self.plaquettes[plaquette_pos].value = 113
+
+            if k % 4 == 1:
+                for j in range(self.Ny_/2):
+                    for i in range(self.Nx_):
+                        plaquette_pos = i + j*Nx + k*Nx*Ny/2
+                        if i%2 == 0:
+                            self.plaquettes[plaquette_pos].value = 13
+                        else:
+                            self.plaquettes[plaquette_pos].value = 113
+
+            if k % 4 == 2:
+                for j in range(self.Ny_):
+                    for i in range(self.Nx_/2):
+                        plaquette_pos = i + j*Nx/2 + k*Nx*Ny/2
+                        if j%2 == 0:
+                            self.plaquettes[plaquette_pos].value = 113
+                        else:
+                            self.plaquettes[plaquette_pos].value = 13
+
+            if k % 4 == 3:
+                for j in range(self.Ny_/2):
+                    for i in range(self.Nx_):
+                        plaquette_pos = i + j*Nx + k*Nx*Ny/2
+                        if i%2 == 0:
+                            self.plaquettes[plaquette_pos].value = 113
+                        else:
+                            self.plaquettes[plaquette_pos].value = 13
